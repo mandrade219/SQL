@@ -1,0 +1,9 @@
+CREATE TABLE victoria_secret (id integer primary key, name text, quanity integer, color text, size text); 
+
+INSERT INTO victoria_secret VALUES (1, "sports_bra", 4, "black", "large"); 
+INSERT INTO victoria_secret VALUES (2, "bikinis", 12, "red", "medium"); 
+INSERT INTO victoria_secret VALUES (3, "pajamas", 22, "polka_dots", "medium");
+SELECT * FROM victoria_secret;
+
+SELECT * FROM victoria_secret;
+SELECT SUM (quanity) FROM victoria_secret
