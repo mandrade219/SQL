@@ -1,0 +1,37 @@
+CREATE TABLE famous_singers (id INTEGER, artist TEXT, age INTEGER, popular_song TEXT, year_born INTEGER, children INTEGER); 
+
+INSERT INTO famous_singers VALUES(1, "harry styles",28, "watermelon sugar", 1994, 0);
+INSERT INTO famous_singers VALUES(2, "niall horan", 25, "dancing with you", 1992, 0); 
+INSERT INTO famous_singers VALUES(3, "liam payne", 30, "strip that down", 1990, 1);
+INSERT INTO famous_singers VALUES(4, "louis tomlinson", 31, "back to you", 1989, 1);
+INSERT INTO famous_singers VALUES(5, "zayn malik", 30, "pillowtalk", 1990, 1); 
+INSERT INTO famous_singers VALUES(6, "selena gomez", 31, "love song", 1989, 0);
+INSERT INTO famous_singers VALUES(7, "taylor swift", 31, "bad blood", 1989, 0);
+INSERT INTO famous_singers VALUES(8, "kanye west", 46, "flashing lights", 1970, 4);
+INSERT INTO famous_singers VALUES(9, "shawn mendes", 22, "treat you better", 1999, 0);
+INSERT INTO famous_singers VALUES(10, "olivia rodrigo", 18, "drivers license", 2004, 0); 
+INSERT INTO famous_singers VALUES (11, "the weekend", 27, "blinding lights", 1996, 0); 
+INSERT INTO famous_singers VALUES(12, "adele", 40, "easy on me", 1972, 1);
+
+CREATE TABLE most_streamed_songs_2021 (id INTEGER, song_title TEXT, artist TEXT, times_streamed integer); 
+
+INSERT INTO most_streamed_songs_2021 VALUES(1, "bad habits", "ed sheeran", 204000000);
+INSERT INTO most_streamed_songs_2021 VALUES(2, "drivers license", "olivia rodrigo", 582000000);
+INSERT INTO most_streamed_songs_2021 VALUES(3, "easy on me", "adele", 24000000); 
+INSERT INTO most_streamed_songs_2021 VALUES(4, "dua lipa", "levitating", 1300000000);
+INSERT INTO most_streamed_songs_2021 VALUES (5, "heat waves", "glass animal", 18000000);
+INSERT INTO most_streamed_songs_2021 VALUES(6, "blinding lights", "the weekend", 3300000000);
+
+
+/*Which artist has the most children in this list?*/
+SELECT artist, MAX(children) FROM famous_singers; 
+
+/*Sort the artists from oldest to youngest*/
+SELECT artist, year_born FROM famous_singers
+ORDER BY year_born; 
+
+/*Which artist is seen in both tables?*/
+SELECT famous_singers.artist, most_streamed_songs_2021.artist AS artists_in_both_tables FROM famous_singers
+LEFT OUTER JOIN most_streamed_songs_2021
+ON famous_singers.artist=most_streamed_songs_2021.artist;
+
